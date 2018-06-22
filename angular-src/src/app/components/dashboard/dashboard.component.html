@@ -1,0 +1,52 @@
+<div class="card mt-4 deep-purple lighten-5">
+  <!-- Material form contact -->
+  <div class="card-body">
+  <form (submit)="onLabSubmit()">
+    <p class="h4 text-center mb-4"> Add New Lab </p>
+    
+    <div class="md-form">
+      <i class="fa fa-laptop prefix grey-text"></i>
+      <input type="text" id="labname" class="form-control" [(ngModel)]="labname" name="labname">
+      <label for="labname">Lab Name</label>
+    </div>
+  
+    <div class="md-form">
+      <i class="fa fa-laptop prefix grey-text"></i>
+      <input type="text" id="discription" class="form-control" [(ngModel)]="description" name="description">
+      <label for="labname">Lab Discription</label>
+    </div>
+  
+  
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" type="submit">Add New<i class="fa fa-paper-plane-o ml-2"></i></button>
+    </div>
+  </form>
+  </div>
+
+
+  </div><br><br><div>
+  <table *ngIf="lablist" class="table table-bordered table table-hover table-light">
+    <thead class="thead-dark">
+        <tr >
+            <th>#</th>
+            <th>Lab Name</th>
+            <th>Description</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of lablist">
+            <th scope="row">#</th>
+            <td>{{x.labname}}</td>
+            <td>{{x.description}}</td>
+            <td> <button type="button" class="btn btn-outline-danger" (click)="onLabDelete(x._id)">Delete </button>
+<button type="button" class="btn btn-outline-info" (click)="onLabDelete(x._id)">Edit </button></td>
+            
+        </tr>
+       
+            
+
+    </tbody>
+</table>
+<div>

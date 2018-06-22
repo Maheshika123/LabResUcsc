@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark mdb-color darken-3">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a [routerLink] = "['/']" class="nav-link" >Home</a>
+          </li>
+          <li *ngIf="authService.loggedIn()"  class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a [routerLink] = "['/login']" class="nav-link" >Login</a>
+          </li>
+          <li *ngIf="authService.loggedIn()"   class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a [routerLink] = "['/register']" class="nav-link">Register</a>
+          </li>
+          <li *ngIf="!authService.loggedIn()" class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
+            <a [routerLink] = "['/dashboard']" class="nav-link dropdown-toggle" data-toggle="dropdown" >Dashboard</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="">Add reservation</a>
+                    <a class="dropdown-item"[routerLink] = "['/dashboard']">Add New Lab</a>
+                    <a class="dropdown-item" href="">User Accounts</a>
+            </div>
+        </li>
+          <li>
+            <a *ngIf="!authService.loggedIn()" (click)="onLogoutClick()"  href="#" class="nav-link">Logout</a>
+        </li>
+         
+        <li *ngIf="!authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink] = "['/profile']" class="nav-link">Profile</a>
+        </li>
+        
+      </ul>
+      <span class="navbar-text white-text">
+          <b>Lab Reservation System </b>
+      </span>
+  </div>
+</nav>  

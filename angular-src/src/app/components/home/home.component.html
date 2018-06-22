@@ -1,0 +1,49 @@
+<!--Jumbotron-->
+<div class="jumbotron text-center mt-3">
+
+    <!--Title-->
+    <h4 class="card-title font-bold pb-2"><strong>WELCOME TO UCSC ONLINE LAB RESERVATION SYSTEM</strong></h4>
+  
+    <!--Card image-->
+    <div class="view overlay my-4">
+        <img src="http://ucsc.cmb.ac.lk/wp-content/uploads/2016/03/web-site.jpg" class="img-fluid" alt="">
+        <a href="#">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+  
+    <h5 class="indigo-text font-bold mb-4">University of Colombo School of Computing</h5>
+  
+    <p class="card-text">
+    </p>
+  
+    <!--Linkedin-->
+    <a class="fa-lg p-2 m-2 li-ic"><i class="fa fa-linkedin grey-text"> </i></a>
+    <!--Twitter-->
+    <a class="fa-lg p-2 m-2 tw-ic"><i class="fa fa-twitter grey-text"> </i></a>
+    <!--Dribbble-->
+    <a class="fa-lg p-2 m-2 fb-ic"><i class="fa fa-facebook grey-text"> </i></a>
+  
+  </div>
+  <!--Jumbotron-->
+  
+  
+  
+  <div *ngIf="lablist" class="row mt-3">
+  <div class="card col-md-4 mt-2" *ngFor="let x of lablist">
+    <h4 class="card-header mdb-color lighten-1 white-text">{{x.labname}} </h4>
+    <div class="card-body">
+        <h5 class="card-title"> {{x.description}}</h5>
+       <div class="row">      
+              <button [routerLink] = "['/addreservation']" type="button" class="btn btn-outline-default waves-effect">Reserve Lab </button>
+              <button [routerLink] = "['/search']" type="button" class="btn btn-outline-default waves-effect">View More </button>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+  
+  
+  
+  
